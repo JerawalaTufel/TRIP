@@ -11,6 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Trip.hasOne(models.tripDriver , {
+        foreignKey : 'trip_id'
+      });
+
+      Trip.hasMany(models.tripUser , {
+        foreignKey : 'trip_id'
+      });
+
+      
     }
   }
   Trip.init({

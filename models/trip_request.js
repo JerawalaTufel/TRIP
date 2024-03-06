@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      tripRequest.hasMany(models.requestUser , {
+        foreignKey: 'request_trip_id'
+      })
     }
   }
   tripRequest.init({

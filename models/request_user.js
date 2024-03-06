@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     request_trip_id: {
       allowNull: false,
-      type: DataTypes.INTEGERuser_id
+      type: DataTypes.INTEGER
     },
     user_id: {
       allowNull: false,

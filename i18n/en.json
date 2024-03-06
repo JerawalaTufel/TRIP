@@ -1,0 +1,8 @@
+{
+	"registerValidationNameRequired": "name field is required",
+	"registerValidationEmailRequired": "email field is required",
+	"registerValidationPasswordRequired": "password is required",
+	"registerValidationPasswordPattern": "Minimum length of 8 characters ,Maximum length of 30 characters , Requires at least one lowercase letter, one uppercase letter, and one digit",
+	"registerValidationRoleRequired": "role required",
+	"registerValidationRoleOnly": "role only be rider and driver"
+}

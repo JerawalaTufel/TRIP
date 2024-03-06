@@ -11,6 +11,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasOne(models.roleUser , {
+        foreignKey : 'user_id'
+      });
+
+      User.hasMany(models.tripUser , {
+        foreignKey : 'user_id'
+      })
+
+      User.hasMany(models.requestUser , {
+        foreignKey : 'user_id'
+      })
+
+      User.hasMany(models.tripDriver , {
+        foreignKey : 'driver_id'
+      })
     }
   }
   User.init({
