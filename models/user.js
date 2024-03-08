@@ -12,7 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.hasOne(models.roleUser , {
-        foreignKey : 'user_id'
+        foreignKey : 'user_id',
+        as: 'roleUser',
+        sourceKey: 'id'
       });
 
       User.hasMany(models.tripUser , {

@@ -7,7 +7,36 @@ const register = (req , res) => {
     const reqParam = req.body;   
     registerValidation(reqParam , res , async (valid) => {
         if(valid) {
+            const userExists = await User.findOne({
+                
+                where : {
+                    name : reqParam.name,
+                    email : reqParam.email
+                },
+                attributes :[
+                    'id',
+                    'name',
+                    'email',
+                    [Sequelize.col("roleUser.role_id"),"role_id"],
+                    [Sequelize.col("roleUser.Roles.name"),"role"]
+                ],
+                include : {
+                    model : roleUser,
+                    as: "roleUser",
+                    attributes :['id','user_id','role_id'],
+                    include: {
+                        model: Role,
+                        attributes: ['id','name'],
+                        as: "Roles",
+                    }
+                }
 
+            });
+            if(userExists) {
+                
+            }
+            console.log(userExists);
+            return
             reqParam.password = await generatePassword(reqParam.password) 
 
             const createUser = await User.create(reqParam);
